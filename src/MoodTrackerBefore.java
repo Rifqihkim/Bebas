@@ -18,7 +18,7 @@
  * </p>
  *
  * @author
- * @version 1.0
+ * @version 1.1
  */
 class MoodEntry {
 
@@ -55,6 +55,34 @@ class MoodEntry {
      */
     public String getMood() {
         return mood;
+    }
+
+    /**
+     * Memperbarui deskripsi mood pengguna dengan nilai baru.
+     *
+     * @param newMood mood baru yang ingin disimpan
+     */
+    public void updateMood(String newMood) {
+        this.mood = newMood;
+    }
+
+    /**
+     * Mengecek apakah mood pengguna mengandung kata tertentu (case-insensitive).
+     * <p>
+     * Berguna untuk melakukan pencarian mood berdasarkan kata kunci.
+     *
+     * @param keyword kata kunci yang ingin dicari di deskripsi mood
+     * @return {@code true} jika mood mengandung kata kunci, {@code false} jika tidak
+     *
+     * <p><b>Contoh:</b>
+     * <pre>
+     * MoodEntry m = new MoodEntry("2025-10-31", "Bahagia Sekali");
+     * m.isMood("bahagia"); // true
+     * m.isMood("sedih");   // false
+     * </pre>
+     */
+    public boolean isMood(String keyword) {
+        return mood.toLowerCase().contains(keyword.toLowerCase());
     }
 
     /**
